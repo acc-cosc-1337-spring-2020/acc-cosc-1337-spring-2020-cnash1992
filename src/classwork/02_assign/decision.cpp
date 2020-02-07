@@ -13,7 +13,11 @@ double gross_pay(double hours, double hourly_rate)
 	else
 	{
 		double result;
-		result =  hours * 40 + (40-hourly_rate);
-		return result;
+		result = (40 * hourly_rate);
+		double overtime;
+		overtime = (hours - 40)*(hourly_rate*1.5);
+		double total_pay;
+		total_pay = result + overtime;
+		return total_pay;
 	}
 }
