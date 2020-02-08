@@ -27,7 +27,7 @@ int main()
 
 	//Display the gross_salary variable as follows:
 	//Example ---->>>     Gross pay: 150.00   
-	cout << gross_salary;
+	cout << "Gross pay $" << gross_salary;
 	return 0;
 }
 
