@@ -25,13 +25,10 @@ int main()
 	rectangle.push_back(area);
 	rectangle.push_back(area2);
 	rectangle.push_back(area3);
-	//int count;
 
 	for (int i = 0; i < rectangle.size(); ++i) 
-	{
-		
+	{	
 		cout << "Area of rectangle: " << rectangle[i].get_area() << "\n";
-
 	}
 
 	return 0;
