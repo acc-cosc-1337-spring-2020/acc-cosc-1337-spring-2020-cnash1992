@@ -30,7 +30,7 @@ int main()
 	for (int i = 0; i < rectangle.size(); ++i) 
 	{
 		
-		cout << rectangle[i].get_area() << "\n";
+		cout << "Area of rectangle: " << rectangle[i].get_area() << "\n";
 
 	}
 
