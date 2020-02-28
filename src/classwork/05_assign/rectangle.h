@@ -4,6 +4,10 @@ has one public function area that returns the area of the rectangle, and one pri
 that calculates area of the rectangle.  The class has 3 int private variables area, width, and height.
 */
 
+#include<iostream>
+
+using std::cout; using std::cin;
+
 class rect
 {
 public:
