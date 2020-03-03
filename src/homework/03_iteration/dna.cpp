@@ -23,9 +23,6 @@ double get_gc_content(const string & dna)
 		{
 			count++;
 		}
-		
-		
-
 
 	}
 
