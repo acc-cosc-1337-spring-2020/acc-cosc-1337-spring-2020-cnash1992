@@ -26,20 +26,10 @@ int main()
 	rectangle.push_back(area2);
 	rectangle.push_back(area3);
 
-
-	int total{ 0 };
-
-
 	for (int i = 0; i < rectangle.size(); ++i) 
-	{	
-		cout << "Area of rectangle: " << rectangle[i].get_area() << "\n";
-
-		total += rectangle[i].get_area();
-
-
+	{
+		cout << rectangle[i].get_area() << "\n";
 	}
-
-	cout << "Total area: " << total;
 
 	return 0;
 }

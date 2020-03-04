@@ -4,6 +4,7 @@ using std::cout; using std::cin;
 
 int main()
 {
+
 	BankAccount account(500);
 
 	auto balance = account.get_balance();
