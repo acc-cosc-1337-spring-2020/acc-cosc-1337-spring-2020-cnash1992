@@ -10,7 +10,7 @@ that calculates area of the rectangle.  The class has 3 int private variables ar
 
 std::ostream & operator<<(std::ostream & out, const rect & area)
 {
-	cout << "Area is: " << area.get_area() << "\n";
+	out << "Area is: " << area.get_area() << "\n";
 	return out;
 }
 
