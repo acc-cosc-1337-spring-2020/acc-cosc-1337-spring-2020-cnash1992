@@ -4,12 +4,17 @@ using std::cout; using std::cin;
 
 int main()
 {
+	
+	/*
+	auto balance = account.get_balance();
+	cout << "Balance is: " << balance << "\n"; */
+	//cout << account << "\n";
 
 	BankAccount account(500);
-
-	auto balance = account.get_balance();
-	cout << "Balance is: " << balance << "\n";
-
+	cin >> account;
+	cout << account;
+	display_balance(account);
+	
 	auto amount{ 0 };
 	cout << "Enter deposit amount: ";
 	cin >> amount;
