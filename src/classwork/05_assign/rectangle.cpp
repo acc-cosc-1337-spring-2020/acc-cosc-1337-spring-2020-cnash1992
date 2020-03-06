@@ -8,6 +8,12 @@ has one public function area that returns the area of the rectangle, and one pri
 that calculates area of the rectangle.  The class has 3 int private variables area, width, and height.
 */
 
+std::ostream & operator<<(std::ostream & out, const rect & area)
+{
+	cout << "Area is: " << area.get_area() << "\n";
+	return out;
+}
+
 void rect::calculate_area()
 {
 	area = width * height;

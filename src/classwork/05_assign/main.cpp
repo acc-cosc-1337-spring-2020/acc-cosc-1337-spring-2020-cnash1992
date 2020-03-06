@@ -21,6 +21,7 @@ int main()
 	rect area(4, 5);
 	rect area2(10, 10);
 	rect area3(100, 10);
+	
 
 	rectangle.push_back(area);
 	rectangle.push_back(area2);
@@ -28,7 +29,7 @@ int main()
 
 	for (int i = 0; i < rectangle.size(); ++i) 
 	{
-		cout << rectangle[i].get_area() << "\n";
+		cout << rectangle[i] << "\n";
 	}
 
 	return 0;
