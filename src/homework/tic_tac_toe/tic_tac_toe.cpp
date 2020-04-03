@@ -199,6 +199,34 @@ void TicTacToe::set_winner()
 
 bool TicTacToe::game_over()
 {
+	check_row_win();
+	check_column_win();
+	check_diagonal_win();
+	check_board_full();
+
+	if (check_row_win() == true || check_column_win() == true || check_diagonal_win() == true) 
+	{
+		return true;
+	}
+
+	else if (check_row_win() == false || check_column_win() == false || check_diagonal_win() == false)
+	{
+		winner = "C";
+	}
+
+	if (check_board_full() == true && winner == "C") 
+	{
+		return true;
+	}
+
+	else if (check_board_full() == false && winner == "C") 
+	{
+		return false;
+	}
+
+	else 
+	{
+		return true;
+	}
 	
-	return check_board_full();
 }

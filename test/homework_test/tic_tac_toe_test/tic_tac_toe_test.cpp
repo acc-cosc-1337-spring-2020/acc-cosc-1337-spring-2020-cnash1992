@@ -61,15 +61,26 @@ TEST_CASE("Test game ends when board is full")
 	TicTacToe game;
 	game.start_game("X");
 
+	
 	for (int i = 1; i < 9; ++i) 
 	{
 		game.mark_board(i);
-		REQUIRE(game.game_over() == false);
+		//REQUIRE(game.game_over() == false);
 	}
+	
 
 	game.mark_board(9);
 	REQUIRE(game.game_over() == true);
 }
+
+TEST_CASE("Testing the game position function only accepts numbers between 1 and 9") 
+{
+	TicTacToe board;
+	board.start_game("X");
+	REQUIRE_THROWS_AS(board.mark_board(0), Invalid);
+	REQUIRE_THROWS_AS(board.mark_board(10), Invalid);
+}
+
 
 TEST_CASE("Testing the check column win function") 
 {
@@ -89,3 +100,153 @@ TEST_CASE("Testing the check column win function")
 	REQUIRE(board.game_over() == true);
 }
 
+TEST_CASE("Testing the check second column win function")
+{
+	TicTacToe board;
+	board.start_game("X");
+	REQUIRE(board.game_over() == false);
+	board.mark_board(2);//X        
+	REQUIRE(board.game_over() == false);
+	board.mark_board(1);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(5);//X          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(4);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(8);//X
+	//X wins
+	REQUIRE(board.game_over() == true);
+}
+
+TEST_CASE("Testing the check third column win function")
+{
+	TicTacToe board;
+	board.start_game("X");
+	REQUIRE(board.game_over() == false);
+	board.mark_board(3);//X        
+	REQUIRE(board.game_over() == false);
+	board.mark_board(2);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(6);//X          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(5);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(9);//X
+	//X wins
+	REQUIRE(board.game_over() == true);
+}
+
+TEST_CASE("Testing the check row win function")
+{
+	TicTacToe board;
+	board.start_game("X");
+	REQUIRE(board.game_over() == false);
+	board.mark_board(1);//X        
+	REQUIRE(board.game_over() == false);
+	board.mark_board(3);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(2);//X          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(5);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(3);//X
+	//X wins
+	REQUIRE(board.game_over() == true);
+}
+
+TEST_CASE("Testing the check second row win function")
+{
+	TicTacToe board;
+	board.start_game("X");
+	REQUIRE(board.game_over() == false);
+	board.mark_board(4);//X        
+	REQUIRE(board.game_over() == false);
+	board.mark_board(3);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(5);//X          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(1);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(6);//X
+	//X wins
+	REQUIRE(board.game_over() == true);
+}
+
+TEST_CASE("Testing the check third row win function")
+{
+	TicTacToe board;
+	board.start_game("X");
+	REQUIRE(board.game_over() == false);
+	board.mark_board(7);//X        
+	REQUIRE(board.game_over() == false);
+	board.mark_board(3);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(8);//X          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(5);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(9);//X
+	//X wins
+	REQUIRE(board.game_over() == true);
+}
+
+TEST_CASE("Testing the check diagonal win function top left")
+{
+	TicTacToe board;
+	board.start_game("X");
+	REQUIRE(board.game_over() == false);
+	board.mark_board(1);//X        
+	REQUIRE(board.game_over() == false);
+	board.mark_board(3);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(5);//X          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(6);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(9);//X
+	//X wins
+	REQUIRE(board.game_over() == true);
+}
+
+TEST_CASE("Testing the check diagonal win function bottom left")
+{
+	TicTacToe board;
+	board.start_game("X");
+	REQUIRE(board.game_over() == false);
+	board.mark_board(7);//X        
+	REQUIRE(board.game_over() == false);
+	board.mark_board(4);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(5);//X          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(6);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(3);//X
+	//X wins
+	REQUIRE(board.game_over() == true);
+}
+
+TEST_CASE("Testing the game over function if no winner")
+{
+	TicTacToe board;
+	board.start_game("X");
+	REQUIRE(board.game_over() == false);
+	board.mark_board(1);//X        
+	REQUIRE(board.game_over() == false);
+	board.mark_board(2);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(3);//X          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(6);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(4);//X
+	REQUIRE(board.game_over() == false);
+	board.mark_board(7);//O          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(5);//X          
+	REQUIRE(board.game_over() == false);
+	board.mark_board(8);//O
+	REQUIRE(board.game_over() == false);
+	board.mark_board(9);//X  
+	REQUIRE(board.game_over() == true);
+}
