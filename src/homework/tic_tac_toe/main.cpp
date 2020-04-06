@@ -7,31 +7,43 @@ int main()
 	string player;
 	int position;
 	TicTacToe game;
-	
-	try 
+
+	do
 	{
-		cout << "Choose between X or O to start the game. ";
-		cin >> player;
-		game.start_game(player);
-
-		do 
+		while (!(player == "X" || player == "O"))
 		{
-			cout << "choose a position between 1 and 9: " << "\n";
-			cin >> position;
+			try
+			{
+				cout << "Choose between X or O to start the game. ";
+				cin >> player;
+				game.start_game(player);
+			}
+			catch (Invalid e)
+			{
+				cout << e.get_error();
+			}
+		}
 
-			game.mark_board(position);
+		while (game.game_over() == false)
+		{
+			try
+			{
+				cout << "choose a position between 1 and 9: " << "\n";
+				cin >> position;
+
+				game.mark_board(position);
+			}
+			catch (Invalid e)
+			{
+				cout << e.get_error();
+			}
+		}
 
 			cout << "To continue playing press Y. ";
 			cin >> cont;
 
-		} while (cont == "Y");
+	} while (cont == "Y");
 
-	}
-	
-	catch (Invalid e) 
-	{
-		cout << e.get_error() << "\n";
-	}
 		
 	return 0;
 }
