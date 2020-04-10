@@ -1,4 +1,5 @@
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_manager.h"
 
 
 int main() 
@@ -7,6 +8,7 @@ int main()
 	string player;
 	int position;
 	TicTacToe game;
+	TicTacToeManager manager;
 
 	do
 	{
@@ -28,10 +30,14 @@ int main()
 		{
 			try
 			{
-				cout << "choose a position between 1 and 9: " << "\n";
-				cin >> position;
+				cout << manager;
+				
+				
+				
+				//cout << "choose a position between 1 and 9: " << "\n";
+				//cin >> position;
 
-				game.mark_board(position);
+				//game.mark_board(position);
 			}
 			catch (Invalid e)
 			{

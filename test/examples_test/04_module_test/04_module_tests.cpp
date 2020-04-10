@@ -2,15 +2,22 @@
 #include "catch.hpp"
 #include "bank_account.h"
 #include "checking_account.h"
+#include "savings_account.h"
+#include <memory>
 
+using std::unique_ptr; using std::make_unique;
+
+/*
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
 TEST_CASE("Testing the bank account constructor") 
 {
-	BankAccount account(500);
-	REQUIRE(account.get_balance() == 500);
+	//must use unique pointers
+	unique_ptr<BankAccount> account = make_unique<SavingsAccount>(90); 
+	
+	REQUIRE(account->get_balance() == 500);
 
 }
 
@@ -86,3 +93,4 @@ TEST_CASE("Test CheckingAccount default constructor balance 0")
 	CheckingAccount account(150);
 	REQUIRE(account.get_balance() == 153);
 }
+*/

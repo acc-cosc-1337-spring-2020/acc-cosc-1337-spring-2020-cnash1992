@@ -30,12 +30,18 @@ void TicTacToe::mark_board(int position)
 	{
 		throw Invalid(" Must start game first.");
 	}
+
+	if (game_over() == false) 
+	{
+		set_next_player();
+	}
 	 
 	pegs[position - 1] = player;
-	set_next_player();
+	//set_next_player();
 
 }
 
+/*
 void TicTacToe::display_board() const
 {
 	for (int i = 0; i < 9; i+=3)
@@ -43,6 +49,8 @@ void TicTacToe::display_board() const
 		cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "\n";
 	}
 }
+*/
+
 
 void TicTacToe::set_next_player()
 {
@@ -229,4 +237,26 @@ bool TicTacToe::game_over()
 		return true;
 	}
 	
+}
+
+std::ostream & operator<<(std::ostream & out, const TicTacToe & a)
+{
+	for (auto &peg : a.pegs)
+	{
+		out << peg[0] << "|" << peg[1] << "|" << peg[2] << "\n";
+		out << peg[3] << "|" << peg[4] << "|" << peg[5] << "\n";
+		out << peg[6] << "|" << peg[7] << "|" << peg[8] << "\n";
+	}
+	
+	return out;
+}
+
+std::istream & operator>>(std::istream & in, TicTacToe & a)
+{
+	int position;
+	cout << "choose a position between 1 and 9: " << "\n";
+	in >> position;
+
+	a.mark_board(position);
+	return in;
 }
