@@ -30,7 +30,8 @@ int main()
 		{
 			try
 			{
-				cout << manager;
+				cin >> game;
+				cout << game;
 				
 				
 				
@@ -50,6 +51,6 @@ int main()
 
 	} while (cont == "Y");
 
-		
+	cout << manager;
 	return 0;
 }
