@@ -7,9 +7,10 @@ int main()
 	string cont;
 	string player;
 	int position;
-	TicTacToe game;
-	TicTacToeManager manager;
+	//TicTacToe game;
+	//TicTacToeManager manager;
 
+	/*
 	do
 	{
 		while (!(player == "X" || player == "O"))
@@ -18,7 +19,7 @@ int main()
 			{
 				cout << "Choose between X or O to start the game. ";
 				cin >> player;
-				game.start_game(player);
+				//game.start_game(player);
 			}
 			catch (Invalid e)
 			{
@@ -52,5 +53,6 @@ int main()
 	} while (cont == "Y");
 
 	cout << manager;
+	*/
 	return 0;
 }
