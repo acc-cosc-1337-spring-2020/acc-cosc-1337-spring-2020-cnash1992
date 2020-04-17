@@ -37,7 +37,7 @@ void TicTacToe::mark_board(int position)
 	}
 	 
 	pegs[position - 1] = player;
-	//set_next_player();
+	
 
 }
 
