@@ -12,9 +12,14 @@ public:
 	size_t Size()const { return size; }
 	int& operator[](int i) { return nums[i]; }
 	int& operator[](int i)const { return nums[i]; }
+	~Vector();
 private:
 	size_t size;
 	int* nums;
 };
 
 #endif // MY_VECTOR_H
+
+//doesn't belong to class
+
+void use_vector(); 
