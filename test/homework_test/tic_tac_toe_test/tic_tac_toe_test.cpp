@@ -3,6 +3,7 @@
 #include "tic_tac_toe.h"
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
+#include <functional>
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);

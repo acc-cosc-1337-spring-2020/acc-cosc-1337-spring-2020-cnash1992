@@ -3,12 +3,15 @@
 #include "tic_tac_toe_4.h"
 #include<iostream>
 #include<functional>
+#include<memory>
 
 using std::cout; using std::cin; using std::string;
+using std::unique_ptr; using std::make_unique;
 
 int main()
 {
-	TicTacToeManager manager;
+	unique_ptr<TicTacToeManager> manager;
+	//TicTacToeManager manager;
 	string cont;
 	std::vector<std::reference_wrapper<TicTacToe>> games;
 
