@@ -11,28 +11,29 @@ using std::unique_ptr; using std::make_unique;
 int main()
 {
 	unique_ptr<TicTacToeManager> manager;
-	//TicTacToeManager manager;
 	string cont;
-	std::vector<std::reference_wrapper<TicTacToe>> games;
+	std::vector<unique_ptr<TicTacToe>> games;
 
 	do
 	{
 		int game_type;
 		cout << "\nTictactoe 3 or 4?";
 		cin >> game_type;
-		TicTacToe3 game3;
-		TicTacToe4 game4;
+		
+		
+		unique_ptr<TicTacToe> game3 = make_unique<TicTacToe3>(3);
+		unique_ptr<TicTacToe> game4 = make_unique<TicTacToe4>(4);
 
 		if (game_type == 3)
 		{
-			games.push_back(game3);
+			games.push_back(std::move(game3));
 		}
 		else if (game_type == 4)
 		{
-			games.push_back(game4);
+			games.push_back(std::move(game4));
 		}
 
-		std::reference_wrapper<TicTacToe> game = games.back();
+		unique_ptr<TicTacToe> game;
 
 		string player = "Y";
 
@@ -43,7 +44,7 @@ int main()
 				cout << "Enter player: ";
 				cin >> player;
 
-				game.get().start_game(player);
+				game->start_game(player);
 			}
 			catch (Error e)
 			{
@@ -57,7 +58,6 @@ int main()
 		{
 			try
 			{
-				cin >> game.get();
 				cout << game.get();
 			}
 			catch (Error e)
@@ -65,18 +65,17 @@ int main()
 				cout << e.get_message();
 			}
 
-		} while (!game.get().game_over());
-
-		manager.save_game(game.get());
-
-		cout << "\nWinner: " << game.get().get_winner() << "\n";
+		} while (!game->game_over());
+		
+		manager->save_game(game);
+		cout << "\nWinner: " << game->get_winner() << "\n";
 
 		cout << "Enter Y to play again: ";
 		cin >> cont;
 
 	} while (cont == "Y");
 
-	cout << manager;
+	cout << *manager;
 
 	return 0;
 }
