@@ -11,7 +11,6 @@ using std::vector;
 class Customer 
 {
 public:
-
 	void add_account(std::unique_ptr<BankAccount> & act);
 	friend std::ostream& operator<<(std::ostream& out, const Customer& c);
 

@@ -2,10 +2,28 @@
 
 //cpp
 
+
+/*
+TicTacToeManager::TicTacToeManager(TicTacToeData & data)
+{
+	data.get_games();
+	for (auto &game : data.get_games) 
+	{
+		update_winner_count(data.get_winner);
+	}
+}
+*/
+
 void TicTacToeManager::save_game(unique_ptr<TicTacToe>& game)
 {
 	update_winner_count(game->get_winner());
 	games.push_back(std::move(game));
+}
+
+TicTacToeManager::~TicTacToeManager()
+{
+	TicTacToeData* saved_game;
+	saved_game->save_games;
 }
 
 void TicTacToeManager::update_winner_count(std::string winner)

@@ -10,7 +10,8 @@ using std::unique_ptr; using std::make_unique;
 
 int main()
 {
-	unique_ptr<TicTacToeManager> manager = make_unique<TicTacToeManager>();
+	TicTacToeData* data;
+	unique_ptr<TicTacToeManager> manager = make_unique<TicTacToeManager>(data);
 	string cont;
 
 	do
@@ -19,13 +20,13 @@ int main()
 		cout << "\nTictactoe 3 or 4?";
 		cin >> game_type;
 		
-		
 		unique_ptr<TicTacToe> game;
 
 		if (game_type == 3)
 		{
 			game = make_unique<TicTacToe3>();
 		}
+
 		else if (game_type == 4)
 		{
 			game = make_unique<TicTacToe4>();
@@ -57,6 +58,7 @@ int main()
 				cin >> *game;
 				cout << *game;
 			}
+
 			catch (Error e)
 			{
 				cout << e.get_message();
