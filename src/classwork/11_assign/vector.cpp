@@ -1,16 +1,13 @@
 #include "vector.h"
 #include <iostream>
 
-
-/*
-
-*/
 template<typename T>
 Vector<T>::Vector()
 	: size {0}, nums{nullptr}, space {0}
 {
 
 }
+
 /*
 Initialize nums to size dynamic array.
 Initialize each array element to 0.
@@ -171,7 +168,7 @@ void Vector<T>::Push_Back(T value)
 
 	else if (size == space)
 	{
-		Reserve(space * RESERVE_DEFAULT_MULTIPLIER);
+		Reserve(space * RESERVE_DEFAULT_MULTIPLIER);  //change to Resize
 	}
 
 	nums[size] = value;
